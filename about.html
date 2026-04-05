@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Your Name</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-header {
+      margin-bottom: 48px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: end;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .page-header h1 em { font-style: italic; color: var(--accent); }
+
+    .page-header p {
+      color: var(--ink-muted);
+      font-size: 1.05rem;
+      max-width: 480px;
+      line-height: 1.65;
+    }
+
+    .cv-btn {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent-mid);
+      padding: 10px 20px;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .cv-btn:hover { background: var(--accent-light); }
+
+    /* Bio */
+    .bio-text {
+      font-size: 1.08rem;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      max-width: 600px;
+      margin-bottom: 0;
+    }
+
+    .bio-text p + p { margin-top: 1.2em; }
+
+    /* Timeline / Education */
+    .timeline {
+      position: relative;
+    }
+
+    .timeline-entry {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .timeline-entry:first-child { padding-top: 0; }
+    .timeline-entry:last-child { border-bottom: none; }
+
+    .timeline-year {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      padding-top: 3px;
+      line-height: 1.5;
+    }
+
+    .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .timeline-sub {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+
+    .timeline-detail {
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+      line-height: 1.6;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    .contact-item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .contact-item:last-child,
+    .contact-item:nth-last-child(2):nth-child(odd) {
+      border-bottom: none;
+    }
+
+    .contact-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-faint);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+    }
+
+    .contact-value a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-light);
+    }
+    .contact-value a:hover { border-color: var(--accent); }
+
+    /* Avatar */
+    .about-avatar {
+      width: 120px;
+      height: 152px;
+      border-radius: 3px;
+      border: 1px solid var(--rule);
+      background: var(--accent-light);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .about-avatar span {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-faint);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 560px) {
+      .page-header { grid-template-columns: 1fr; }
+      .timeline-entry { grid-template-columns: 1fr; gap: 4px; }
+      .timeline-year { padding-top: 0; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html">Your Name</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="photography.html">Photography</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-header fade-up">
+    <div>
+      <h1>About &amp;<br><em>CV</em></h1>
+      <p>I'm an MSCAPP student at the University of Chicago, interested in how computational tools can make public institutions more equitable and accountable.</p>
+    </div>
+    <a class="cv-btn" href="cv.pdf">Download CV ↓</a>
+  </div>
+
+  <section>
+    <div class="section-label">Bio</div>
+    <div style="display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap;">
+      <div class="bio-text">
+        <p>
+          I came to MSCAPP from [your undergraduate background], drawn by the program's blend of rigorous methods and genuine policy stakes. My work sits at the intersection of machine learning, urban data, and public accountability — I care about making complex analysis legible to the people it affects.
+        </p>
+        <p>
+          Before Chicago I worked at [previous role or organization], where I [brief description]. Outside of research you'll find me with a camera, hunting for good light on the South Side, or reading something completely unrelated to my field.
+        </p>
+      </div>
+      <div class="about-avatar">
+        <span>photo<br>goes here</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Education</div>
+    <div class="timeline">
+
+      <div class="timeline-entry fade-up">
+        <div class="timeline-year">2024 –<br>2025</div>
+        <div>
+          <div class="timeline-title">University of Chicago</div>
+          <div class="timeline-sub">MS, Computational Analysis &amp; Public Policy (MSCAPP)</div>
+          <div class="timeline-detail">
+            Coursework: Machine Learning for Public Policy · Data &amp; Programming for Public Policy · Statistics for Data Science · Policy Analysis · Applied Econometrics
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-entry fade-up">
+        <div class="timeline-year">20XX –<br>20XX</div>
+        <div>
+          <div class="timeline-title">Your Undergraduate University</div>
+          <div class="timeline-sub">BS, Your Major — GPA X.X/4.0</div>
+          <div class="timeline-detail">
+            Honors, awards, relevant activities, etc.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Experience</div>
+    <div class="timeline">
+
+      <div class="timeline-entry fade-up">
+        <div class="timeline-year">Summer<br>2024</div>
+        <div>
+          <div class="timeline-title">Organization or Company Name</div>
+          <div class="timeline-sub">Role Title — City, State</div>
+          <div class="timeline-detail">
+            Brief description of what you did, the impact, and any tools or methods used.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-entry fade-up">
+        <div class="timeline-year">20XX –<br>20XX</div>
+        <div>
+          <div class="timeline-title">Previous Role or Organization</div>
+          <div class="timeline-sub">Role Title</div>
+          <div class="timeline-detail">
+            Another entry. Add as many as you need.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Get in touch</div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <span class="contact-value"><a href="mailto:you@uchicago.edu">you@uchicago.edu</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value"><a href="#">github.com/yourhandle</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value"><a href="#">linkedin.com/in/yourname</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">Chicago, IL</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-note">Last updated April 2026</span>
+    <span class="footer-note">yourname.github.io</span>
+  </footer>
+
+</div>
+</body>
+</html>
