@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photography — Your Name</title>
+  <title>Photography — Hilman Hanivan</title>
   <link rel="stylesheet" href="style.css">
   <style>
     .page-header {
@@ -164,127 +164,39 @@
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-name" href="index.html">Your Name</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="photography.html" class="active">Photography</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Project</a></li>
+      <li><a href="photography.html" class="active">Imaji</a></li>
     </ul>
   </div>
 </nav>
 
 <div class="page">
-
   <div class="page-header fade-up">
-    <h1>Photo&shy;<em>graphy</em></h1>
-    <p>Drawn to quiet geometry, street light, and the feeling of being slightly outside the frame. Shooting film and digital since 2018.</p>
+    <h1><em>Imaji</em></h1>
+    <p style="font-style: normal;">The world, caught slightly off-guard.</p>
   </div>
-
-  <div class="photo-info fade-up">
-    <div class="info-cell">
-      <div class="info-label">Subjects</div>
-      <div class="info-value">Street, architecture, portrait</div>
-    </div>
-    <div class="info-cell">
-      <div class="info-label">Gear</div>
-      <div class="info-value">Contax T2 · Fuji X-T4</div>
-    </div>
-    <div class="info-cell">
-      <div class="info-label">Based in</div>
-      <div class="info-value">Chicago, IL</div>
-    </div>
-  </div>
-
-  <div class="filter-bar fade-up">
-    <button class="filter-btn on" onclick="filter(this, 'all')">All</button>
-    <button class="filter-btn" onclick="filter(this, 'street')">Street</button>
-    <button class="filter-btn" onclick="filter(this, 'architecture')">Architecture</button>
-    <button class="filter-btn" onclick="filter(this, 'portrait')">Portrait</button>
-    <button class="filter-btn" onclick="filter(this, 'film')">Film</button>
-  </div>
-
-  <div class="photo-grid" id="grid">
-
-    <div class="photo-item" data-cat="street film">
-      <div class="photo-placeholder">
-        <span>photo 1<br>replace with &lt;img&gt;</span>
-      </div>
-      <div class="photo-caption">
-        <span class="caption-text">Devon Ave, late afternoon</span>
-        <span class="caption-meta">Kodak Gold · 2024</span>
-      </div>
-    </div>
-
-    <div class="photo-item" data-cat="architecture">
-      <div class="photo-placeholder">
-        <span>photo 2<br>replace with &lt;img&gt;</span>
-      </div>
-      <div class="photo-caption">
-        <span class="caption-text">Harris School stairwell</span>
-        <span class="caption-meta">Digital · 2024</span>
-      </div>
-    </div>
-
-    <div class="photo-item" data-cat="portrait film">
-      <div class="photo-placeholder">
-        <span>photo 3<br>replace with &lt;img&gt;</span>
-      </div>
-      <div class="photo-caption">
-        <span class="caption-text">Untitled portrait</span>
-        <span class="caption-meta">Ilford HP5 · 2023</span>
-      </div>
-    </div>
-
-    <div class="photo-item" data-cat="street">
-      <div class="photo-placeholder">
-        <span>photo 4<br>replace with &lt;img&gt;</span>
-      </div>
-      <div class="photo-caption">
-        <span class="caption-text">Wabash, rush hour</span>
-        <span class="caption-meta">Digital · 2025</span>
-      </div>
-    </div>
-
-    <div class="photo-item" data-cat="architecture film">
-      <div class="photo-placeholder">
-        <span>photo 5<br>replace with &lt;img&gt;</span>
-      </div>
-      <div class="photo-caption">
-        <span class="caption-text">Museum of Science &amp; Industry</span>
-        <span class="caption-meta">Kodak Ultramax · 2023</span>
-      </div>
-    </div>
-
-    <div class="photo-item" data-cat="street portrait">
-      <div class="photo-placeholder">
-        <span>photo 6<br>replace with &lt;img&gt;</span>
-      </div>
-      <div class="photo-caption">
-        <span class="caption-text">Maxwell Street market</span>
-        <span class="caption-meta">Digital · 2024</span>
-      </div>
-    </div>
-
-  </div>
-
+  <div class="photo-grid" id="grid"></div>
   <footer>
-    <span class="footer-note">All photos © Your Name</span>
-    <a class="footer-note link-arrow" href="#">Full portfolio on Instagram →</a>
+    <span class="footer-note">All photos © Hilman Hanivan</span>
   </footer>
-
 </div>
 
 <script>
-function filter(btn, cat) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  document.querySelectorAll('.photo-item').forEach(item => {
-    const cats = item.dataset.cat || '';
-    item.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
-  });
-}
+  fetch('photos.json')
+    .then(r => r.json())
+    .then(photos => {
+      const grid = document.getElementById('grid');
+      photos.forEach(src => {
+        const div = document.createElement('div');
+        div.className = 'photo-item';
+        div.innerHTML = `<img src="${src}" style="width:100%; display:block;">`;
+        grid.appendChild(div);
+      });
+    });
 </script>
+
 
 </body>
 </html>

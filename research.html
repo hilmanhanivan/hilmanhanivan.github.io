@@ -149,12 +149,10 @@
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-name" href="index.html">Your Name</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="research.html" class="active">Research</a></li>
-      <li><a href="photography.html">Photography</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="research.html" class="active">Project</a></li>
+      <li><a href="photography.html">Imaji</a></li>
     </ul>
   </div>
 </nav>
@@ -162,115 +160,55 @@
 <div class="page">
 
   <div class="page-header fade-up">
-    <h1>Research &amp;<br><em>Projects</em></h1>
-    <p>Computational approaches to policy questions — using data to understand where systems work and where they don't.</p>
+    <h1>Selected Projects</h1>
   </div>
 
   <section>
-    <div class="section-label">Featured work</div>
     <div class="project-list">
 
-      <div class="project-card fade-up">
-        <div>
-          <div class="project-tags">
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Housing</span>
-          </div>
-          <div class="project-title">Predicting Eviction Risk in Cook County</div>
-          <p class="project-desc">
-            Built a predictive model using property records, court filings, and census data to identify neighborhoods at elevated eviction risk. Collaborated with the Chicago Housing Authority to evaluate policy interventions.
-          </p>
-          <div class="project-links">
-            <a class="link-arrow" href="#">GitHub →</a>
-            <a class="link-arrow" href="#">Paper →</a>
-          </div>
+        <div class="project-card fade-up">
+            <div>
+                <div class="project-tags">
+                <span class="tag">Big Data</span>
+                <span class="tag">Streaming</span>
+                <span class="tag">Environment</span>
+                </div>
+                <div class="project-title">Environmental Data Pipeline — KBDI &amp; Precipitation</div>
+                <p class="project-desc">
+                Motivated by flood disasters in Sumatera, this project delivers historical and real-time drought and precipitation monitoring across Indonesian regions. Built a full lambda architecture — batch layer via Google Earth Engine, Hive, and HBase; speed layer via Kafka and Spark Structured Streaming — visualized through a Node.js web app.
+                </p>
+                <div class="project-links">
+                <a class="link-arrow" href="https://github.com/hilmanhanivan/GEE-data-pipeline">GitHub →</a>
+                </div>
+            </div>
+            <span class="project-year">2025</span>
         </div>
-        <span class="project-year">2025</span>
-      </div>
 
-      <div class="project-card fade-up">
-        <div>
-          <div class="project-tags">
-            <span class="tag">NLP</span>
-            <span class="tag">Education</span>
-          </div>
-          <div class="project-title">Parsing Public Comment: NLP on CPS Policy Submissions</div>
-          <p class="project-desc">
-            Applied topic modeling and sentiment analysis to thousands of public comments submitted to Chicago Public Schools, surfacing patterns in community priorities that traditional review processes missed.
-          </p>
-          <div class="project-links">
-            <a class="link-arrow" href="#">GitHub →</a>
-            <a class="link-arrow" href="#">Writeup →</a>
-          </div>
-        </div>
-        <span class="project-year">2024</span>
-      </div>
 
-      <div class="project-card fade-up">
-        <div>
-          <div class="project-tags">
-            <span class="tag">Spatial Analysis</span>
-            <span class="tag">Environment</span>
-          </div>
-          <div class="project-title">Green Space Access &amp; Health Outcomes in Illinois</div>
-          <p class="project-desc">
-            Mapped proximity to parks against asthma rates and heat-related hospitalizations across Illinois ZIP codes using QGIS and census health data. Identified significant disparities across income deciles.
-          </p>
-          <div class="project-links">
-            <a class="link-arrow" href="#">GitHub →</a>
-            <a class="link-arrow" href="#">Dashboard →</a>
-          </div>
+        <div class="project-card fade-up">
+            <div>
+                <div class="project-tags">
+                <span class="tag">Geospatial</span>
+                <span class="tag">Policy</span>
+                <span class="tag">Data Analysis</span>
+                </div>
+                <div class="project-title">Blown Away: The Rise and Fall of Businesses in the Windy City</div>
+                <p class="project-desc">
+                Examines patterns of business openings and closures across Chicago in relation to median income and crime rates. Combines geospatial and statistical analysis using business license data, ACS census data, and crime records from the Chicago Data Portal to inform policy on urban economic trends.
+                </p>
+                <div class="project-links">
+                <a class="link-arrow" href="https://github.com/uchicago-2025-capp30122/30122-project-codeconomics">GitHub →</a>
+                </div>
+            </div>
+            <span class="project-year">2025</span>
         </div>
-        <span class="project-year">2024</span>
-      </div>
 
     </div>
   </section>
 
-  <section>
-    <div class="section-label">Skills &amp; tools</div>
-    <div class="skills-cols">
-      <div class="skill-group">
-        <div class="skill-cat">Languages</div>
-        <div class="skill-items">
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">R</span>
-          <span class="skill-pill">SQL</span>
-          <span class="skill-pill">JavaScript</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-cat">Libraries</div>
-        <div class="skill-items">
-          <span class="skill-pill">pandas</span>
-          <span class="skill-pill">scikit-learn</span>
-          <span class="skill-pill">ggplot2</span>
-          <span class="skill-pill">spaCy</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-cat">Methods</div>
-        <div class="skill-items">
-          <span class="skill-pill">Causal inference</span>
-          <span class="skill-pill">NLP</span>
-          <span class="skill-pill">Spatial analysis</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-cat">Tools</div>
-        <div class="skill-items">
-          <span class="skill-pill">Git</span>
-          <span class="skill-pill">Tableau</span>
-          <span class="skill-pill">QGIS</span>
-          <span class="skill-pill">LaTeX</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <footer>
     <span class="footer-note">Last updated April 2026</span>
-    <a class="footer-note link-arrow" href="about.html">See full CV →</a>
   </footer>
 
 </div>
