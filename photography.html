@@ -158,6 +158,35 @@
       .photo-grid { columns: 2; }
       .photo-info { grid-template-columns: 1fr; }
     }
+
+    .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.92);
+        z-index: 999;
+        align-items: center;
+        justify-content: center;
+        cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+        max-width: 92vw;
+        max-height: 92vh;
+        object-fit: contain;
+        border-radius: 2px;
+    }
+    .lightbox-close {
+        position: fixed;
+        top: 20px;
+        right: 28px;
+        font-family: var(--mono);
+        font-size: 13px;
+        color: rgba(255,255,255,0.5);
+        cursor: pointer;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
   </style>
 </head>
 <body>
@@ -183,18 +212,47 @@
   </footer>
 </div>
 
+
+
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">close</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
   fetch('photos.json')
     .then(r => r.json())
     .then(photos => {
       const grid = document.getElementById('grid');
-      photos.forEach(src => {
+      photos.forEach(p => {
         const div = document.createElement('div');
         div.className = 'photo-item';
-        div.innerHTML = `<img src="${src}" style="width:100%; display:block;">`;
+        console.log(p.thumb);
+        div.innerHTML = `<img src="${p.thumb}" style="width:100%; display:block;">`;
+        div.onclick = () => openLightbox(p.src);
         grid.appendChild(div);
       });
     });
+
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightbox-img').src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
 </script>
 
 
